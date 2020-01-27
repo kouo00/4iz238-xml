@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="SemeSchematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-stylesheet type="text/xsl" href="SemeHTMLTrans.xsl"?>
+
+<dodacíList xmlns="http://www.semestralkaMS.cz/LS2018"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.semestralkaMS.cz/LS2018 SemeSchema.xsd">
+    <metadata>
+        <DodaciList>DL220325</DodaciList>
+        <CisObj>0000118543</CisObj>
+        <DatumObjednání>2016-12-01</DatumObjednání>
+        <DatumDodání>2016-12-05</DatumDodání>
+        <ObjZak>1519029618</ObjZak>
+    </metadata>
+    <Header>
+        <Dodavatel>
+            <Nazev>Animalco a.s.</Nazev>
+            <Mesto>Praha 6</Mesto>
+            <Ulice>Na Kocínce 1</Ulice>
+            <PSC>160 41</PSC>
+        </Dodavatel>
+        <Zakaznik typ="dodací">
+            <Nazev>PMU CZ, a.s.</Nazev>
+            <Mesto>Roudnice nad Labem</Mesto>
+            <Ulice>Chelčického 627</Ulice>
+            <PSC>413 01</PSC>
+        </Zakaznik>
+        <Zakaznik typ="fakturační">
+            <Nazev>PMU CZ, a.s.</Nazev>
+            <Mesto>Roudnice nad Labem</Mesto>
+            <Ulice>Chelčického 627</Ulice>
+            <PSC>413 01</PSC>
+        </Zakaznik>
+    </Header>
+    <Položky>
+        <Položka>
+            <IdentifikačníČíslo>0203222313BEDBE</IdentifikačníČíslo>
+            <Popis>zimní bunda</Popis>
+            <Barva>žlutá</Barva>
+            <Materiál>polyester</Materiál>
+            <Pohlaví>dámské</Pohlaví>
+            <Velikost>S</Velikost>
+            <CenaZaKus měna="CZK">1500</CenaZaKus>
+            <Mnozstvi jednotky="kusy">15</Mnozstvi>
+            <Značka>Mammut</Značka>
+            <FotoURI>i1.png</FotoURI>
+            <TXT>Lehká nepromokavá bunda do nepříznivého počasí od firmy Mammut, která je vhodná pro širokou škálu outdoorových aktivit. Díky systému Mammut Easy combine lze do bundy vepnout libovolnou izolační vrstvu (fleecka, zateplená bunda) značky Mammut. Vpínací systém je na krku a rukávech, pomocí patentu. Nechybí ani tvarované rukávy, nastavitelná tříbodová kapuce nebo regulace spodního lemu na obou stranách.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>0203222101NEKSP</IdentifikačníČíslo>
+            <Popis>Péřovka</Popis>
+            <Barva>černá</Barva>
+            <Materiál>Polyester</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>L</Velikost>
+            <CenaZaKus měna="CZK">5400</CenaZaKus>
+            <Mnozstvi jednotky="kusy">10</Mnozstvi>
+            <Značka>Sir Joseph</Značka>
+            <FotoURI>i2.png</FotoURI>
+            <TXT>Ultra lehká péřová bunda značky Sir Joseph z řady Light, kterou využijete na jaře, podzim i v zimě. Měla by s vámi být při každé akci v horách a nezklame ani na běžné nošení. Jako záložní izolační vrstva místo fleecky nezabere téměř žádné místo, a navíc ji můžete sbalit do kompresního sáčku, který je součástí bundy.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>0203222789PTRFG</IdentifikačníČíslo>
+            <Popis>Kalhoty</Popis>
+            <Barva>Hnědá</Barva>
+            <Materiál>64% Bavlna, 36% Nylon</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>XL</Velikost>
+            <CenaZaKus měna="CZK">2000</CenaZaKus>
+            <Mnozstvi jednotky="kusy">13</Mnozstvi>
+            <Značka>Arc teryx</Značka>
+            <FotoURI>i3.png</FotoURI>
+            <TXT>Velice všestranné kalhoty od firmy Arc teryx z odolného materiálu, které se hodí jak do města, tak na outdoorové výlety. Jejich konstrukce poskytuje svobodu pohybu a nabízí skvělý design, který rozhodně nezklame ani ve společnosti.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>0349876521USPCK</IdentifikačníČíslo>
+            <Popis>Kalhoty</Popis>
+            <Barva>Oranžová</Barva>
+            <Materiál>Eco-shell</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>M</Velikost>
+            <CenaZaKus měna="CZK">12000</CenaZaKus>
+            <Mnozstvi jednotky="kusy">5</Mnozstvi>
+            <Značka>Fjällräven</Značka>
+            <FotoURI>i4.png</FotoURI>
+            <TXT>Pánské nepromokavé kalhoty z materiálu Eco-shell od firmy Fjällräven pro aktivní pohyb v horském terénu. Na skialpy, sněžnice nebo několikadenní přechody...nic pro ně není problém. Jejich snadné obléknutí nebo svléknutí přes obuv umožní rozepínatelné nohavice po celé délce. Kalhoty pro zvýšení odolnosti jsou zesílené materiálem Corylon v oblasti kolen, pasu a vnitřní strany nohavic ve spodní části.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>0369403158XNVKP</IdentifikačníČíslo>
+            <Popis>Lezečky</Popis>
+            <Barva>Žlutá, černá</Barva>
+            <Materiál>Keprová tkanina, guma</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>44</Velikost>
+            <CenaZaKus měna="CZK">1100</CenaZaKus>
+            <Mnozstvi jednotky="kusy">6</Mnozstvi>
+            <Značka>OCUN</Značka>
+            <FotoURI>i5.png</FotoURI>
+            <TXT>Velmi komfortní lezečky v klasickém šněrovacím provedení od firmy OCUN, které jsou primárně určené pro začínající lezce. Firma především kladla důraz na kvalitní ogumování včetně špičky. Díky plochému a jen velmi mírně asymetrickému kopytu nabízí tato bota komfort širokému spektru typů chodidel. Především začátečníci ocení ekonomický model Crest LU, ve kterém si budou své první stovky metrů lezení pohodlně užívat.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>4672168951PLOIU</IdentifikačníČíslo>
+            <Popis>Lezečky</Popis>
+            <Barva>Modrá, černá</Barva>
+            <Materiál>Kůže, guma</Materiál>
+            <Pohlaví>dámské</Pohlaví>
+            <Velikost>38</Velikost>
+            <CenaZaKus měna="CZK">1400</CenaZaKus>
+            <Mnozstvi jednotky="kusy">15</Mnozstvi>
+            <Značka>La Sportiva</Značka>
+            <FotoURI>i6.png</FotoURI>
+            <TXT>Velice měkká bota s velmi citlivou špičkou. Cobra dlouhou dobu určovala směr, jak má vypadat dobrá nazouvací lezka. Díky kvalitní kostrukci se lezečka nevyzouvá a poskytuje výbornou přilnavost i na špatných stupech. Cobra představuje lezečku s vysokým výkonem a přitom za dobrou cenu. Kopyto je středně široké a je potřeba vybírat o něco menší velikosti než u ostatních lezeček.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>1245789632DSACX</IdentifikačníČíslo>
+            <Popis>Lezečky</Popis>
+            <Barva>Hnědá, černá</Barva>
+            <Materiál>Kůže</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>43</Velikost>
+            <CenaZaKus měna="CZK">2500</CenaZaKus>
+            <Mnozstvi jednotky="kusy">15</Mnozstvi>
+            <Značka>La Sportiva</Značka>
+            <FotoURI>i7.png</FotoURI>
+            <TXT>Vyjímečně všetranná lezečka na šněrování. Pohodlná, vhodná pro začátečniky i pokročilé. Dobře se přizpůsobí každému typu chodidla.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>6548973109SADFG</IdentifikačníČíslo>
+            <Popis>Lezečky</Popis>
+            <Barva>Černá, modrá</Barva>
+            <Materiál>Syntetická kůže</Materiál>
+            <Pohlaví>univerzální</Pohlaví>
+            <Velikost>45</Velikost>
+            <CenaZaKus měna="CZK">1300</CenaZaKus>
+            <Mnozstvi jednotky="kusy">2</Mnozstvi>
+            <Značka>TRIOP</Značka>
+            <FotoURI>i8.png</FotoURI>
+            <TXT>Nový model lezečky od firmy Triop, který je určen pro všestranné lezení na umělých stěnách i skalách. Středně asymetrická a prohnutá konstrukce umožňuje celodenní lezení.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>3791328001SMBJK</IdentifikačníČíslo>
+            <Popis>Kulich</Popis>
+            <Barva>Černá, bílá</Barva>
+            <Materiál>Vlna</Materiál>
+            <Pohlaví>univerzální</Pohlaví>
+            <Velikost>uviverzální</Velikost>
+            <CenaZaKus měna="CZK">500</CenaZaKus>
+            <Mnozstvi jednotky="kusy">20</Mnozstvi>
+            <Značka>TRIOP</Značka>
+            <FotoURI>i9.png</FotoURI>
+            <TXT>Pletená vlněná čepice do největších mrazů. Díky průžnému provedění je adaptuje na kteroukoliv velikost a padne každému.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>4932650001SMCVK</IdentifikačníČíslo>
+            <Popis>Rukavice</Popis>
+            <Barva>černá</Barva>
+            <Materiál>Vlna, Elastan</Materiál>
+            <Pohlaví>dámské</Pohlaví>
+            <Velikost>XS</Velikost>
+            <CenaZaKus měna="CZK">1000</CenaZaKus>
+            <Mnozstvi jednotky="kusy">14</Mnozstvi>
+            <Značka>NorthFace</Značka>
+            <FotoURI>i10.png</FotoURI>
+            <TXT>260 Tech Glove Liners jsou oblíbené rukavice značky Icebreaker. Vylepšený design zahrnuje technologii pro ovládání dotykových obrazovek na palci a ukazováčku. Merino střední gramáže poskytuje skvělý tepelný komfort, skvěle sedí použitím materiálu LYCRA®. Rukavice lze nosit samostatně nebo jako hřejivá vložka do jiných rukavic.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>9951326102TRUJG</IdentifikačníČíslo>
+            <Popis>Funkční prádlo</Popis>
+            <Barva>Černá</Barva>
+            <Materiál>Polyamid, Polypropylen</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>S</Velikost>
+            <CenaZaKus měna="CZK">2600</CenaZaKus>
+            <Mnozstvi jednotky="kusy">3</Mnozstvi>
+            <Značka>UYN</Značka>
+            <FotoURI>i11.png</FotoURI>
+            <TXT>Funkční spodní prádlo značky UYN je určeno pro všechny zimní sporty v nízkých teplotách. Je vyrobené z organického materiálu Natex, který je velmi příjemný na dotek a velmi rychle schne (o 50% rychleji než oblečení z nylonu). Trojrozměrné kanály Coolvent umožňují proudění vzduchu tak, abyste zůstali během aktivit v suchu. Izolační vzduchové komory technologie Heat Memory udrží vaše svaly v teple v době odpočinku.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>0002541874JERHT</IdentifikačníČíslo>
+            <Popis>Vesta</Popis>
+            <Barva>Černá</Barva>
+            <Materiál>Polyester, Vlna, Elastan</Materiál>
+            <Pohlaví>univerzální</Pohlaví>
+            <Velikost>M</Velikost>
+            <CenaZaKus měna="CZK">4500</CenaZaKus>
+            <Mnozstvi jednotky="kusy">40</Mnozstvi>
+            <Značka>Icebreaker</Značka>
+            <FotoURI>i12.png</FotoURI>
+            <TXT>Zateplená pánská prošívaná vesta od firmy Icebreaker je ideální jako střední vrstva pro každodenní nošení nebo různé outdoorové aktivity. Na jaře a na podzim lze nosit jako svrchní vrstvu. Při výrobě bylo dbáno na ekologii - recyklovaný polyester či nylon, část recyklované vlny. Prošívané zóny jsou s přírodní izolací MerinoLOFT™ (vyrobená z merino vlny), který dokáže hřát i vlhký, proto je vhodný i na intenzivní pohybové aktivity. Boční panely z merina pomáhají regulovat tělesnou teplotu. Vnější materiál je s úpravou DWR, která vás dokáže ochránit před lehkým deštěm. Do bočních kapes na zip schováte veškeré nezbytnosti.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>6137851023JHTRF</IdentifikačníČíslo>
+            <Popis>Košile</Popis>
+            <Barva>Červená, černá</Barva>
+            <Materiál>Vlna, akryl</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>XL</Velikost>
+            <CenaZaKus měna="CZK">800</CenaZaKus>
+            <Mnozstvi jednotky="kusy">1</Mnozstvi>
+            <Značka>North Vinter</Značka>
+            <FotoURI>i13.png</FotoURI>
+            <TXT>Canada Shirt je košile s dlouhým rukávem klasického dřevorubeckého stylu vhodná na běžné nošení i na výlety do přírody. Košile je velmi teplá a odolná díky kombinaci vlny, akrylu a polyesteru. Náprsní kapsy má umístěné níže, pro lepší přístup.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>3125691023VIIJT</IdentifikačníČíslo>
+            <Popis>Svetr</Popis>
+            <Barva>Černá</Barva>
+            <Materiál>Vlna</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>L</Velikost>
+            <CenaZaKus měna="CZK">4000</CenaZaKus>
+            <Mnozstvi jednotky="kusy">5</Mnozstvi>
+            <Značka>MAMUT</Značka>
+            <FotoURI>i14.png</FotoURI>
+            <TXT>Pánský svetr značky Icebreaker vás spolehlivě zahřeje a vy u toho budete skvěle vypadat. Je vyrobený ze 100% prémiové merino vlny technologií pletení 5gg. Dvojitá vrstva pleteniny vysoké gramáže poskytuje vysoký tepelný komfort. Na vnitřní straně je pletený přízí odlišné barvy a lze nosit oboustranně. Merino vlna je prodyšná a velmi příjemná na dotyk. Carrigan Sweater Sweatshirt je svetr pro každodenní pohodlí a pocit tepla. Je vhodný na cesty do práce či městskou turistiku.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>7418520369MNVHJ</IdentifikačníČíslo>
+            <Popis>Sedák</Popis>
+            <Barva>Černá, modrá</Barva>
+            <Materiál>Dimenzovaná tkanina</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>L</Velikost>
+            <CenaZaKus měna="CZK">1800</CenaZaKus>
+            <Mnozstvi jednotky="kusy">4</Mnozstvi>
+            <Značka>TRIOP</Značka>
+            <FotoURI>i15.png</FotoURI>
+            <TXT>Model Momentum od firmy Black Diamond je velmi všestranný sedací úvazek moderního designu s klasickými sponami. Anatomický tvar a použitý materiál zajišťují maximální pohodlí v převisu i ve velké stěně. Konstrukce úvazku je designovaná především s důrazem na maximální komfort a pohodlí. Nohavičky TrakFIT jsou velice snadno nastavitelné a komfortní.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>1246384512QRKMH</IdentifikačníČíslo>
+            <Popis>Batoh</Popis>
+            <Barva>Modrá</Barva>
+            <Materiál>Squaretex 420, Duratex</Materiál>
+            <Pohlaví>univerzální</Pohlaví>
+            <Velikost>XL</Velikost>
+            <CenaZaKus měna="CZK">4100</CenaZaKus>
+            <Mnozstvi jednotky="kusy">16</Mnozstvi>
+            <Značka>Rise</Značka>
+            <FotoURI>i16.png</FotoURI>
+            <TXT>Řádná porce zábavy se vejde do tohoto zimního batohu. Rise 34+ je makáč, který vám odnese do hor vše co potřebujete na skialp nabo freeride výpravu. Na popruhy můžete uchytit lyže, snowboard nebo sněžnice. Pro lepší vybalení nebo zabalení má ruksak v zádech všitý zip, kterým se dá rozevřít jako kufr. Možnost uchycení rozličného cajku a kapsa na svatou trojci pak ve vás vyvolá pocit, že tohle je ten pravý.</TXT>
+        </Položka>
+    </Položky>
+</dodacíList>

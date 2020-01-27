@@ -1,0 +1,202 @@
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.semestralkaMS.cz/LS2018" targetNamespace="http://www.semestralkaMS.cz/LS2018" xmlns:mstns="http://www.semestralkaMS.cz/LS2018" elementFormDefault="qualified" attributeFormDefault="unqualified"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1"
+    >
+    
+    <xs:element name="dodacíList" type="dodacíListType">    
+    </xs:element>
+    
+    <xs:complexType name="DodavatelType">
+        <xs:sequence>
+            <xs:element type="StringNeniNull" name="Nazev"/>
+            <xs:element type="StringNeniNull" name="Mesto"/>
+            <xs:element type="StringNeniNull" name="Ulice"/>
+            <xs:element type="PSCType" name="PSC"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ZakaznikType">
+        <xs:sequence>
+            <xs:element type="StringNeniNull" name="Nazev"/>
+            <xs:element type="StringNeniNull" name="Mesto"/>
+            <xs:element type="StringNeniNull" name="Ulice"/>
+            <xs:element type="PSCType" name="PSC">
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type="ZakAtrbType" name="typ"/>
+    </xs:complexType>
+    
+    <xs:complexType name="metadataType">
+        <xs:sequence>
+            <xs:element type="DodListType" name="DodaciList"/>
+            <xs:element type="CisObjType" name="CisObj"/>
+            <xs:element type="xs:date" name="DatumObjednání"/>
+            <xs:element type="xs:date" name="DatumDodání"/>
+            <xs:element type="ObjZakType" name="ObjZak"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="HeaderType">
+        <xs:sequence>
+            <xs:element type="DodavatelType" name="Dodavatel"/>
+            <xs:element type="ZakaznikType" name="Zakaznik" minOccurs="2" maxOccurs="2">              
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>    
+    
+    <xs:complexType name="PoložkaType">
+        <xs:sequence>
+            <xs:element type="IdentifikačníČísloType" name="IdentifikačníČíslo"/>
+            <xs:element type="StringNeniNull" name="Popis"/>
+            <xs:element type="BarvaType" name="Barva"/>
+            <xs:element type="StringNeniNull" name="Materiál"/>
+            <xs:element type="PohlavíType" name="Pohlaví"/>
+            <xs:element type="VelikostType" name="Velikost"/>
+            <xs:element type="CenaZaKusType" name="CenaZaKus"/>
+            <xs:element type="MnozstviType" name="Mnozstvi"/>
+            <xs:element type="ZnačkaType" name="Značka"/>
+            <xs:element type="xs:anyURI" name="FotoURI"/>
+            <xs:element type="StringNeniNull" name="TXT"/>
+        </xs:sequence>
+    </xs:complexType>
+      
+      <xs:simpleType name="PohlavíType">
+          <xs:restriction base="xs:string">
+              <xs:enumeration value="pánské"/>
+              <xs:enumeration value="dámské"/>
+              <xs:enumeration value="univerzální"/>
+          </xs:restriction>
+      </xs:simpleType>
+    
+    <xs:simpleType name="VelikostType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="37"/>
+            <xs:enumeration value="38"/>
+            <xs:enumeration value="39"/>
+            <xs:enumeration value="40"/>
+            <xs:enumeration value="41"/>
+            <xs:enumeration value="42"/>
+            <xs:enumeration value="43"/>
+            <xs:enumeration value="44"/>
+            <xs:enumeration value="45"/>
+            <xs:enumeration value="XS"/>
+            <xs:enumeration value="XS"/>
+            <xs:enumeration value="S"/>
+            <xs:enumeration value="M"/>
+            <xs:enumeration value="L"/>
+            <xs:enumeration value="XL"/>
+            <xs:enumeration value="uviverzální"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="ZnačkaType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="CenaZaKusType">
+            <xs:simpleContent>
+                <xs:extension base="xs:float">
+                    <xs:attribute name="měna" type="měnaTyp" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>   
+    </xs:complexType>
+    
+    <xs:simpleType name="měnaTyp">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CZK"/>
+            <xs:enumeration value="EUR"/>
+            <xs:enumeration value="GBP"/>
+            <xs:enumeration value="USD"/>
+            <xs:enumeration value="JPY"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="MnozstviType">
+        <xs:simpleContent>
+            <xs:extension base="xs:float">
+                <xs:attribute name="jednotky" type="jednotkyType" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>   
+    </xs:complexType>
+    
+    <xs:simpleType name="jednotkyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="kusy"/>
+            <xs:enumeration value="gramy"/>
+            <xs:enumeration value="metry"/>
+            <xs:enumeration value="litry"/>
+        </xs:restriction>
+    </xs:simpleType>
+      
+    <xs:simpleType name="IdentifikačníČísloType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{10}\D*\p{Lu}{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="PoložkyType">
+        <xs:sequence>
+            <xs:element type="PoložkaType" name="Položka" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="dodacíListType">
+        <xs:sequence>
+            <xs:element type="metadataType" name="metadata"/>
+            <xs:element type="HeaderType" name="Header">
+                <xs:unique name="zakaznikKontrola">
+                    <xs:selector xpath="mstns:Zakaznik"/>
+                    <xs:field xpath="@typ"/>
+                </xs:unique> 
+            </xs:element>
+            <xs:element type="PoložkyType" name="Položky"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="PSCType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[1-9]\d{2}[ ][0-9][0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DodListType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="DL\d{6}"/>
+        </xs:restriction> 
+    </xs:simpleType>
+    
+    <xs:simpleType name="CisObjType">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="\d{10}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="ObjZakType">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="\d{10}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="ZakAtrbType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="dodací"/>
+            <xs:enumeration value="fakturační"/>
+        </xs:restriction> 
+    </xs:simpleType> 
+    
+    <xs:simpleType name="StringNeniNull">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="BarvaType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>
