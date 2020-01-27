@@ -20,7 +20,7 @@
                 
                 <fo:static-content flow-name="xsl-region-before">
                     <fo:block text-align="center" margin-top="5mm">
-                        <xsl:text>Zákazníkova objednávka číslo : </xsl:text><xsl:value-of select="s:Objednavka/s:Header/s:CisObj"/><fo:leader leader-pattern="dots"/><xsl:text> vyexportováno do PDF dne : </xsl:text><xsl:value-of select="current-date()"/>
+                        <xsl:text>Zákazníkova objednávka číslo : </xsl:text><xsl:value-of select="s:dodacíList/s:Header/s:CisObj"/><fo:leader leader-pattern="dots"/><xsl:text> vyexportováno do PDF dne : </xsl:text><xsl:value-of select="current-date()"/>
                     </fo:block>
                 </fo:static-content>
 
@@ -40,40 +40,40 @@
                     
                     <xsl:apply-templates/>
                     
-                    <xsl:for-each select="s:Objednavka/s:Položky/s:Položka">
-                        <xsl:sort select="s:JednCena" data-type="number" order="descending"></xsl:sort>
+                    <xsl:for-each select="s:dodacíList/s:Položky/s:Položka">
+                        <xsl:sort select="s:CenaZaKus" data-type="number" order="descending"></xsl:sort>
                         <fo:block id="{generate-id()}" break-before="page">
-                            Skladový kód : <xsl:value-of select="s:SklKod"/>
+                            Identifikační Číslo : <xsl:value-of select="s:IdentifikačníČíslo"/>
                         </fo:block>
                         <fo:block>
                             Popis : <xsl:value-of select="s:Popis"></xsl:value-of>
                         </fo:block>
                         <fo:block>
-                            Datum výroby : <xsl:value-of select="s:DatVyroby"></xsl:value-of>
+                            Barva : <xsl:value-of select="s:Barva"></xsl:value-of>
                         </fo:block>
                         <fo:block>
-                            Datum expirace : <xsl:value-of select="s:DatExp"/>
+                            Materiál : <xsl:value-of select="s:Materiál"/>
                         </fo:block>
                         <fo:block>
-                            Pečeť : <xsl:value-of select="s:Pecet"/>
+                            Pohlaví : <xsl:value-of select="s:Pohlaví"/>
                         </fo:block>
                         <fo:block>
-                            Šarže : <xsl:value-of select="s:Sarze"/>
+                            Velikost : <xsl:value-of select="s:Velikost"/>
                         </fo:block>
                         <fo:block>
-                            Jednotková cena : <xsl:value-of select="s:JednCena"/><xsl:value-of select="s:JednCena/@měna"/>
+                            Cena za jeden kus : <xsl:value-of select="s:CenaZaKus"/><xsl:value-of select="s:CenaZaKus/@měna"/>
                         </fo:block>
                         <fo:block>
                             Množství : <xsl:value-of select="s:Mnozstvi"/><xsl:value-of select="s:Mnozstvi/@jednotky"/>
                         </fo:block>
                         <fo:block>
-                            Počet balení : <xsl:value-of select="s:PocetBaleni"/>
+                            Značka : <xsl:value-of select="s:Značka"/>
                         </fo:block>
                         <fo:block>
-                            TXT : <xsl:value-of select="s:TXT"/>
+                            Text : <xsl:value-of select="s:TXT"/>
                         </fo:block>
                         <fo:block>
-                            QR kód produktu : <xsl:apply-templates select="s:QRKod"/>
+                            Náhled : <xsl:apply-templates select="s:FotoURI"/>
                         </fo:block>
                     </xsl:for-each>
                     <fo:block id="posledni"/>
@@ -82,7 +82,7 @@
         </fo:root>
     </xsl:template>
     
-    <xsl:template match="s:QRKod">
+    <xsl:template match="s:FotoURI">
         <fo:block>
             <fo:external-graphic src="{.}" content-width="5cm" width="40%"
                 text-align="center" display-align="center"/>
@@ -98,7 +98,7 @@
         <fo:block>Číslo objednávky: <xsl:value-of select="."/></fo:block>
     </xsl:template>
 
-    <xsl:template match="s:DatDodani">
+    <xsl:template match="s:DatumDodání">
         <fo:block>Datum dodání: <xsl:value-of select="."/></fo:block>
     </xsl:template>
 
@@ -163,7 +163,7 @@
                         <fo:block>Detail položky</fo:block>
                     </fo:table-cell>
                     <fo:table-cell padding="3mm">
-                        <fo:block>Skladový kód</fo:block>
+                        <fo:block>Identifikační číslo</fo:block>
                     </fo:table-cell>
                     <fo:table-cell padding="3mm">
                         <fo:block>Popis</fo:block>
@@ -190,7 +190,7 @@
                     <xsl:for-each select="s:Položky/s:Položka">
                         <fo:block text-align-last="justify">
                             <fo:basic-link internal-destination="{generate-id(.)}">
-                                <xsl:value-of select="s:SklKod"/>
+                                <xsl:value-of select="s:IdentifikačníČíslo"/>
                             </fo:basic-link>
                         </fo:block>
                     </xsl:for-each>
@@ -201,7 +201,7 @@
             </fo:table-cell>
             <fo:table-cell padding="3mm">
                 <fo:block>
-                    <xsl:value-of select="s:SklKod"/>
+                    <xsl:value-of select="s:IdentifikačníČíslo"/>
                 </fo:block>
             </fo:table-cell>
             <fo:table-cell padding="3mm">
@@ -211,8 +211,8 @@
             </fo:table-cell>
             <fo:table-cell padding="3mm">
                 <fo:block>
-                    <xsl:value-of select="s:JednCena"/>
-                    <xsl:value-of select="s:JednCena/@měna"/>
+                    <xsl:value-of select="s:CenaZaKus"/>
+                    <xsl:value-of select="s:CenaZaKus/@měna"/>
                 </fo:block>
             </fo:table-cell>
             <fo:table-cell padding="3mm">
