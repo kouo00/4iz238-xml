@@ -177,6 +177,7 @@
     <xs:simpleType name="ObjZakType">
         <xs:restriction base="xs:int">
             <xs:pattern value="\d{10}"/>
+            <xs:maxInclusive value="999999999"></xs:maxInclusive>
         </xs:restriction>
     </xs:simpleType>
     

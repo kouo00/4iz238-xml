@@ -7,7 +7,7 @@
     <sch:ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
 
     <sch:pattern>
-        <sch:title>validace jedné měny</sch:title>
+        <sch:title>Validace jedné měny</sch:title>
         <sch:rule context="o:Položka">
             <sch:assert
                 test="count(../o:Položka/o:CenaZaKus[@měna = current()/o:CenaZaKus/@měna]) = count(../o:Položka/o:CenaZaKus[@měna])">V objednávce musí být vždy jen jedna měna</sch:assert>
@@ -15,7 +15,7 @@
     </sch:pattern>
 
     <sch:pattern>
-        <sch:title>Minimální množství objednávky</sch:title>
+        <sch:title>Minimální množství kusů objednávky</sch:title>
         <sch:rule context="o:Položky">        
             <sch:assert test="if(o:Položka/o:Mnozstvi/@jednotky='kusy') then(min(//o:Položka/o:Mnozstvi[@jednotky='kusy'])&gt; 0) else(true())">Minimální výše množství je 1 kus</sch:assert>
         </sch:rule>

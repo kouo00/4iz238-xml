@@ -24,7 +24,7 @@
         <xsl:apply-templates/>
     </xsl:template>
 
-    <xsl:template match="s:DodaciList">
+    <xsl:template match="s:cisloListu">
         <p>Dodací list: <xsl:value-of select="."/></p>
     </xsl:template>
 
@@ -124,8 +124,9 @@
                 <th>Šarže</th>
                 <th>Jednotková cena</th>
                 <th>Množství</th>
-                <th>Počet balení</th>
-                <th>QR Kód</th>
+                <th>Cena celkem</th>
+                <th>Značka</th>
+                <th>Obrázek</th>
                 <th>TXT</th>
             </tr>
             <xsl:for-each select="//s:dodacíList/s:Položky/s:Položka">
@@ -148,10 +149,14 @@
                     <td>
                         <xsl:value-of select="s:Velikost"/>
                     </td>
-                    <td><xsl:value-of select="s:CenaZaKus"/>&#160;<xsl:value-of
+                    <td><xsl:value-of select='format-number(s:CenaZaKus, "###,###.0")' />&#160;<xsl:value-of
                         select="s:CenaZaKus/@měna"/></td>
                     <td><xsl:value-of select="s:Mnozstvi"/>&#160;<xsl:value-of
                             select="s:Mnozstvi/@jednotky"/></td>
+                    <td>
+                        <xsl:value-of select='format-number(s:CenaZaKus * s:Mnozstvi, "###,###.0")' />&#160;<xsl:value-of
+                            select="s:CenaZaKus/@měna"/>
+                    </td>
                     <td>
                         <xsl:value-of select="Značka"/>
                     </td>
@@ -198,6 +203,7 @@
                                 <th>Velikost</th>
                                 <th>Cena za jeden kus</th>
                                 <th>Množství</th>
+                                <th>Cena celkem</th>
                                 <th>Značka</th>
                                 <th>Obrázek</th>
                                 <th>Text</th>
@@ -221,12 +227,16 @@
                                 <td>
                                     <xsl:value-of select="s:Velikost"/>
                                 </td>
-                                <td><xsl:value-of select="s:CenaZaKus"/>&#160;<xsl:value-of
+                                <td><xsl:value-of select='format-number(s:CenaZaKus, "###,###.0")' />&#160;<xsl:value-of
                                     select="s:CenaZaKus/@měna"/></td>
                                 <td><xsl:value-of select="s:Mnozstvi"/>&#160;<xsl:value-of
-                                        select="s:Mnozstvi/@jednotky"/></td>
+                                    select="s:Mnozstvi/@jednotky"/></td>
                                 <td>
-                                    <xsl:value-of select="s:Značka"/>
+                                    <xsl:value-of select='format-number(s:CenaZaKus * s:Mnozstvi, "###,###.0")' />&#160;<xsl:value-of
+                                        select="s:CenaZaKus/@měna"/>
+                                </td>
+                                <td>
+                                    <xsl:value-of select="Značka"/>
                                 </td>
                                 <td>
                                     <xsl:choose>
@@ -249,7 +259,7 @@
                             </tr>
                         </table>
                         <p id="footer">
-                            <a href="html.html">Zpět</a>
+                            <a href="katalog.html">Zpět</a>
                         </p>
                     </body>
                 </html>

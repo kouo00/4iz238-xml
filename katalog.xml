@@ -10,26 +10,26 @@
         <CisObj>0000118549</CisObj>
         <DatumObjednání>2016-12-01</DatumObjednání>
         <DatumDodání>2016-12-05</DatumDodání>
-        <ObjZak>1519029618</ObjZak>
+        <ObjZak>0000000218</ObjZak>
     </metadata>
     <Header>
         <Dodavatel>
-            <Nazev>Animalco a.s.</Nazev>
-            <Mesto>Praha 6</Mesto>
-            <Ulice>Na Kocínce 1</Ulice>
-            <PSC>160 41</PSC>
+            <Nazev>Dáme lezečky a.s.</Nazev>
+            <Mesto>Praha 1</Mesto>
+            <Ulice>Horolezecká 1</Ulice>
+            <PSC>110 00</PSC>
         </Dodavatel>
         <Zakaznik typ="dodací">
-            <Nazev>PMU CZ, a.s.</Nazev>
-            <Mesto>Roudnice nad Labem</Mesto>
-            <Ulice>Chelčického 627</Ulice>
-            <PSC>413 01</PSC>
+            <Nazev>HUDYsport a.s.</Nazev>
+            <Mesto>Bynovec</Mesto>
+            <Ulice>Bynovec 138</Ulice>
+            <PSC>405 02</PSC>
         </Zakaznik>
         <Zakaznik typ="fakturační">
-            <Nazev>PMU CZ, a.s.</Nazev>
-            <Mesto>Roudnice nad Labem</Mesto>
-            <Ulice>Chelčického 627</Ulice>
-            <PSC>413 01</PSC>
+            <Nazev>HUDYsport a.s.</Nazev>
+            <Mesto>Bynovec</Mesto>
+            <Ulice>Bynovec 138</Ulice>
+            <PSC>405 02</PSC>
         </Zakaznik>
     </Header>
     <Položky>
@@ -60,10 +60,10 @@
             <TXT>Ultra lehká péřová bunda značky Sir Joseph z řady Light, kterou využijete na jaře, podzim i v zimě. Měla by s vámi být při každé akci v horách a nezklame ani na běžné nošení. Jako záložní izolační vrstva místo fleecky nezabere téměř žádné místo, a navíc ji můžete sbalit do kompresního sáčku, který je součástí bundy.</TXT>
         </Položka>
         <Položka>
-            <IdentifikačníČíslo>0203222789PTRFG</IdentifikačníČíslo>
+            <IdentifikačníČíslo>0203222789PTRFX</IdentifikačníČíslo>
             <Popis>Kalhoty</Popis>
             <Barva>Hnědá</Barva>
-            <Materiál>64% Bavlna, 36% Nylon</Materiál>
+            <Materiál>Bavlna, Nylon</Materiál>
             <Pohlaví>pánské</Pohlaví>
             <Velikost>XL</Velikost>
             <CenaZaKus měna="CZK">2000</CenaZaKus>
@@ -240,6 +240,19 @@
             <Značka>Rise</Značka>
             <FotoURI>i16.png</FotoURI>
             <TXT>Řádná porce zábavy se vejde do tohoto zimního batohu. Rise 34+ je makáč, který vám odnese do hor vše co potřebujete na skialp nabo freeride výpravu. Na popruhy můžete uchytit lyže, snowboard nebo sněžnice. Pro lepší vybalení nebo zabalení má ruksak v zádech všitý zip, kterým se dá rozevřít jako kufr. Možnost uchycení rozličného cajku a kapsa na svatou trojci pak ve vás vyvolá pocit, že tohle je ten pravý.</TXT>
+        </Položka>
+        <Položka>
+            <IdentifikačníČíslo>8275124781NSBZT</IdentifikačníČíslo>
+            <Popis>Ponožky</Popis>
+            <Barva>Černá</Barva>
+            <Materiál>Bavlna</Materiál>
+            <Pohlaví>pánské</Pohlaví>
+            <Velikost>44</Velikost>
+            <CenaZaKus měna="CZK">300</CenaZaKus>
+            <Mnozstvi jednotky="kusy">20</Mnozstvi>
+            <Značka>Aries</Značka>
+            <FotoURI>i17.png</FotoURI>
+            <TXT>Jemné bavlněné ponožky Aries s 90% podílem dlouhovlákné BIO bavlny, která minimalizuje riziko alergických reakcí a ekzémů, zaručují nejvyšší komfort nošení. Při jejich vývoji byl kladen důraz nejen na jejich pohodlnost, ale také na zachování všech zdraví prospěšných detailů. Ponožky jsou vyráběny se zdravotním vaflovým lemem a řetízkovanou špicí, které nezpůsobují nepříjemné otlaky na nohou, přitom lem na noze výborně drží.</TXT>
         </Položka>
     </Položky>
 </dodacíList>
