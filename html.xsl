@@ -110,7 +110,6 @@
     </xsl:template>
 
     
-
     <xsl:template match="s:Položky">
         <table>
             <caption>

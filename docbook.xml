@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" >
+    <info>
+        <title>Semestrální práce ke kurzu 4iz238 - Dodací list</title>
+        <author>
+            <personname>
+                <firstname>Oldřich</firstname>
+                <surname>Koutecký</surname>
+            </personname>
+            <email>kouo00@vse.cz</email>
+        </author>
+    </info>
+    <preface>
+        <title>Úvod</title>
+        <para>V této dokumentaci jsou popsány všechny XML soubory vytvořené pro zpracování
+            semestrální práce ke kurzu 4IZ238. Předmětem bylo vytvoření XML dokumentu, schématu,
+            schematronu, transformací do PDF a HTML dokumentu a nakonec samotná dokumentace v
+            DOCBOOKU.</para>
+    </preface>
+
+    <chapter>
+        <title>XML dokument, schema a schematron</title>
+        <sect1>
+            <title>XML dokument</title>
+            <para> Pro téma mé semestrální práce jsem se rozhodl pro zpracování dodacích listů
+                objednávky pro prodejce horolezeckého vybavení. V XML<indexterm><primary>XML</primary></indexterm> dokumentu
+                sleduji informace o dodavateli, fakturačním a dodacím zákazníkovi a nakonec o zboží,
+                které si obchod objednal.</para>
+        </sect1>
+
+        <sect1>
+            <title>XML schema</title>
+            <para>Testovací dokument <filename>katalog.xml</filename> je validován pomocí
+                        <indexterm><primary>XML schematu</primary></indexterm> XML schematu
+                    <filename>schema.xsd</filename> toto schema bylo navrženo ve struktuře
+                slepého benátčana, který se mi zdál jako nejlepší volba pro rychlé aktualizace
+                případných oprav či úprav.</para>
+            <para>V mé práci se převážně objevují typy kontrol pomocí enumarationu či patternu
+                následuje ukázka kódu těchto omezení : </para>
+            <para>V tomto omezení nastavuji, že hodnoty vložené do elementu Pohlaví mohou být pouze ty
+                které jsou zde uvedeny.</para>
+            <blockquote>
+                <literallayout><code><![CDATA[
+<xs:simpleType name="PohlavíType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="pánské"/>
+        <xs:enumeration value="dámské"/>
+        <xs:enumeration value="univerzální"/>
+    </xs:restriction>
+</xs:simpleType>]]>
+            </code></literallayout>
+            </blockquote>
+            <para>A naopak v tomto omezení nastavuji že hodnoty vkládané do elementu identifikační číslo
+                musí být ve stylu - 10 číslic a 5 velkých písmen neboli 0203222101NEKSP</para>
+            <blockquote>
+                <literallayout><code><![CDATA[
+<xs:simpleType name="IdentifikačníČíslo">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="\d{10}\D*\p{Lu}{5}"></xs:pattern>
+    </xs:restriction>
+</xs:simpleType>]]></code></literallayout>
+            </blockquote>
+            <para><indexterm><primary>Referenční integrita</primary></indexterm>Pomocí referenční
+                integrity neboli unikátního klíče jsem zajistil že se v dokumentu nebude objevovat
+                stejný typ zákazníka (jedná se o atribut elementu zákazník: dodací nebo fakturační).
+                Ukázka kódu:</para>
+            <blockquote>
+                <literallayout><code><![CDATA[    
+<xs:complexType name="dodacíListType">
+    <xs:sequence>
+        <xs:element type="metadataType" name="metadata"/>
+            <xs:element type="HeaderType" name="Header">
+                <xs:unique name="zakaznikKontrola">
+                    <xs:selector xpath="mstns:Zakaznik"/>
+                    <xs:field xpath="@typ"/>
+                </xs:unique> 
+            </xs:element>
+        <xs:element type="PoložkyType" name="Položky"/>
+    </xs:sequence>
+</xs:complexType>]]> 
+                </code></literallayout>
+            </blockquote>
+        </sect1>
+        <sect1>
+            <title>Schematron</title>
+            <para><indexterm><primary>Schematron</primary></indexterm>Jako další požadavek bylo
+                vytvoření schematronu který bylo možno vytvořit v rámci schematu či jako samostatný
+                soubor. Já jsem se rozhodl pro druhou možnost tudíž mou práci můžete vidět zde
+                    <filename>schematron.sch</filename> v tomto schemtronu kotroluji například
+                minimální množství položky nutné pro objednání. Zde můžete vidět ukázku kódu : </para>
+            <blockquote>
+                <literallayout><code><![CDATA[    
+<sch:pattern>
+    <sch:title>Minimální množství objednávky</sch:title>
+        <sch:rule context="o:Položky">        
+        <sch:assert test="if(o:Položka/o:Mnozstvi/@jednotky='kusy') then(min(//o:Položka/o:Mnozstvi[@jednotky='Kg'])&gt; 0) else(true())">Minimální výše množství je 1 kus</sch:assert>
+    </sch:rule>
+</sch:pattern>]]></code></literallayout>
+            </blockquote>
+        </sect1>
+    </chapter>
+    <chapter>
+        <title><indexterm><primary>Transformace</primary></indexterm>Transformace</title>
+        <para>Dalším úkolem této práce bylo transformování XML dokumentu do HTML a PDF dokumentu. K
+            tomuto transformování jsou používány XSL styly</para>
+        <sect1>
+            <title>HTML transformace<indexterm><primary>HTML
+                transformace</primary></indexterm></title>
+            <para>Pro transformaci do HTML dokumentu jsem vytvořil soubor
+                    <filename>html.xsl</filename> v tomto souboru jsou uvedeny šablony
+                pro formátování a zobrazení XML dokumentu v HTML podobě. V následujícím kódu ukáži
+                vygenerování objednaných položek do tabulky a následné vygenerování samostatné HTLM
+                stránky pro každou položku : <blockquote>
+                    <literallayout><code><![CDATA[        
+<xsl:for-each select="//Položka">
+    <a href="polozka{position()}.html">
+        <xsl:value-of select="IdentifikačníČíslo"/> - <xsl:value-of select="Popis"/>
+            </a>
+            <br/>
+        </xsl:for-each>
+</xsl:template>
+
+<xsl:template match="s:Položky">
+<table>
+<caption>
+    <h2>Seznam položek</h2>
+</caption>
+<tr>
+    <th>Identifikační číslo</th>
+    <th>Popis</th>
+    <th>Datum výroby</th>
+    <th>Datum expirace</th>
+    <th>Pečeť</th>
+    <th>Šarže</th>
+    <th>Jednotková cena</th>
+    <th>Množství</th>
+    <th>Počet balení</th>
+    <th>QR Kód</th>
+    <th>TXT</th>
+</tr>
+<xsl:for-each select="//s:dodacíList/s:Položky/s:Položka">
+    <tr>
+        <td>
+            <xsl:value-of select="s:IdentifikačníČíslo"/>
+        </td>
+        <td>
+            <xsl:value-of select="s:Popis"/>
+        </td>
+        <td>
+            <xsl:value-of select="s:Barva"/>
+        </td>
+        <td>
+            <xsl:value-of select="s:Materiál"/>
+        </td>
+        <td>
+            <xsl:value-of select="s:Pohlaví"/>
+        </td>
+        <td>
+            <xsl:value-of select="s:Velikost"/>
+        </td>
+        <td><xsl:value-of select="s:CenaZaKus"/>&#160;<xsl:value-of
+            select="s:CenaZaKus/@měna"/></td>
+        <td><xsl:value-of select="s:Mnozstvi"/>&#160;<xsl:value-of
+                select="s:Mnozstvi/@jednotky"/></td>
+        <td>
+            <xsl:value-of select="Značka"/>
+        </td>
+        <td>
+            <xsl:choose>
+                <xsl:when test="FotoURI[not(text())]">Náhled není k dispozici</xsl:when>
+                <xsl:otherwise>
+                    <img alt="Foto položky">
+                        <xsl:attribute name="src">
+                            <xsl:text>png/</xsl:text>
+                            <xsl:value-of select="FotoURI"/>
+                        </xsl:attribute>
+                    </img>
+                </xsl:otherwise>
+            </xsl:choose>
+
+        </td>
+        <td>
+            <xsl:value-of select="s:TXT"/>
+        </td>
+    </tr>
+</xsl:for-each>]]></code></literallayout>
+                </blockquote>
+            </para>
+
+            <para><indexterm><primary>CSS</primary></indexterm>Pro uživatelsky přívětivější
+                zobrazení HTML stránky jsem vytvořil kaskádový styl
+                <filename>style.css</filename>. Tento dokument pouze upravuje pozicování tabulek a
+                nadpisů. Ukázka kódu :</para>
+            <blockquote>
+                <literallayout><code><![CDATA[
+table {
+    border-collapse: collapse;
+    float:left;
+    border: solid;
+    margin: 20px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+td {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: left;
+}
+]]></code></literallayout>
+            </blockquote>
+        </sect1>
+        <sect1>
+            <title>PDF transformace <indexterm><primary>PDF
+                transformace</primary></indexterm></title>
+            <para> Jako předposlední část této práce je transformace XML dokumentu do PDF. Soubor
+                kterým tuto transformaci provádím je <filename>pdf.xsl</filename>. Rozdíl
+                mezi HTML transformací a touto je ten že se zde používají formátovatelné bloky
+                [fo:block]. Ve výsledném dokumentu jsem se snažil zachovat podobný styl jako v HTML
+                transformaci. Ukázka kódu : </para>
+            <blockquote>
+                <literallayout><code>
+                <![CDATA[
+<fo:static-content flow-name="xsl-region-before">
+    <fo:block text-align="center" margin-top="5mm">
+        <xsl:text>Zákazníkova objednávka číslo : </xsl:text><xsl:value-of select="s:dodacíList/s:metadata/s:CisObj"/><fo:leader leader-pattern="dots"/><xsl:text> vyexportováno do PDF dne : </xsl:text><xsl:value-of select="current-date()"/>
+    </fo:block>
+</fo:static-content>
+
+<fo:static-content flow-name="xsl-region-after">
+    <fo:block text-align="center">
+        <xsl:text>Strana </xsl:text>
+        <fo:page-number/>
+        <xsl:text> / </xsl:text>
+        <fo:page-number-citation ref-id="posledni"/>
+    </fo:block>
+</fo:static-content>
+                ]]>
+            </code></literallayout>
+            </blockquote>
+            <para>V tomto kódu vytvářím záhlaví a zápatí. V záhlaví je uvedeno číslo objednávky a
+                den kdy bylo toto PDF vytištěno a v zápati je uvedena informace o počtu stran
+                dokumentu.</para>
+        </sect1>
+    </chapter>
+    <chapter>
+        <title><indexterm><primary>DOCBOOK</primary></indexterm>Dokumentace</title>
+        <para>Jako poslední částí bylo vytvoření dokumentace pomocí DOCBOOKU a následné vygenerování
+            tohoto zpracování do podoby HTML a PDF.</para>
+    </chapter>
+
+    <index></index>
+
+</book>

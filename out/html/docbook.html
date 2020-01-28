@@ -1,0 +1,180 @@
+<html xmlns:ng="http://docbook.org/docbook-ng"><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Semestr&aacute;ln&iacute; pr&aacute;ce ke kurzu 4iz238 - Dodac&iacute; list</title><meta name="generator" content="DocBook XSL Stylesheets V1.79.2"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book"><div class="titlepage"><div><div><h1 class="title"><a name="d5e1"></a>Semestr&aacute;ln&iacute; pr&aacute;ce ke kurzu 4iz238 - Dodac&iacute; list</h1></div><div><div class="author"><h3 class="author"><span class="firstname">Old&#345;ich</span> <span class="surname">Kouteck&yacute;</span></h3><code class="email">&lt;<a class="email" href="mailto:kouo00@vse.cz">kouo00@vse.cz</a>&gt;</code></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="preface"><a href="#d5e9">&Uacute;vod</a></span></dt><dt><span class="chapter"><a href="#d5e12">1. XML dokument, schema a schematron</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d5e14">XML dokument</a></span></dt><dt><span class="sect1"><a href="#d5e19">XML schema</a></span></dt><dt><span class="sect1"><a href="#d5e41">Schematron</a></span></dt></dl></dd><dt><span class="chapter"><a href="#d5e50">2. Transformace</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d5e55">HTML transformace</a></span></dt><dt><span class="sect1"><a href="#d5e71">PDF transformace </a></span></dt></dl></dd><dt><span class="chapter"><a href="#d5e81">3. Dokumentace</a></span></dt><dt><span class="index"><a href="#d5e86">Index</a></span></dt></dl></div><div class="preface"><div class="titlepage"><div><div><h1 class="title"><a name="d5e9"></a>&Uacute;vod</h1></div></div></div><p>V t&eacute;to dokumentaci jsou pops&aacute;ny v&#353;echny XML soubory vytvo&#345;en&eacute; pro zpracov&aacute;n&iacute;
+            semestr&aacute;ln&iacute; pr&aacute;ce ke kurzu 4IZ238. P&#345;edm&#283;tem bylo vytvo&#345;en&iacute; XML dokumentu, sch&eacute;matu,
+            schematronu, transformac&iacute; do PDF a HTML dokumentu a nakonec samotn&aacute; dokumentace v
+            DOCBOOKU.</p></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="d5e12"></a>Chapter&nbsp;1.&nbsp;XML dokument, schema a schematron</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="#d5e14">XML dokument</a></span></dt><dt><span class="sect1"><a href="#d5e19">XML schema</a></span></dt><dt><span class="sect1"><a href="#d5e41">Schematron</a></span></dt></dl></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e14"></a>XML dokument</h2></div></div></div><p> Pro t&eacute;ma m&eacute; semestr&aacute;ln&iacute; pr&aacute;ce jsem se rozhodl pro zpracov&aacute;n&iacute; dodac&iacute;ch list&#367;
+                objedn&aacute;vky pro prodejce horolezeck&eacute;ho vybaven&iacute;. V XML<a class="indexterm" name="d5e17"></a> dokumentu
+                sleduji informace o dodavateli, faktura&#269;n&iacute;m a dodac&iacute;m z&aacute;kazn&iacute;kovi a nakonec o zbo&#382;&iacute;,
+                kter&eacute; si obchod objednal.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e19"></a>XML schema</h2></div></div></div><p>Testovac&iacute; dokument <code class="filename">katalog.xml</code> je validov&aacute;n pomoc&iacute;
+                        <a class="indexterm" name="d5e23"></a> XML schematu
+                    <code class="filename">schema.xsd</code> toto schema bylo navr&#382;eno ve struktu&#345;e
+                slep&eacute;ho ben&aacute;t&#269;ana, kter&yacute; se mi zd&aacute;l jako nejlep&#353;&iacute; volba pro rychl&eacute; aktualizace
+                p&#345;&iacute;padn&yacute;ch oprav &#269;i &uacute;prav.</p><p>V m&eacute; pr&aacute;ci se p&#345;ev&aacute;&#382;n&#283; objevuj&iacute; typy kontrol pomoc&iacute; enumarationu &#269;i patternu
+                n&aacute;sleduje uk&aacute;zka k&oacute;du t&#283;chto omezen&iacute; : </p><p>V tomto omezen&iacute; nastavuji, &#382;e hodnoty vlo&#382;en&eacute; do elementu Pohlav&iacute; mohou b&yacute;t pouze ty
+                kter&eacute; jsou zde uvedeny.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code"><br>
+&lt;xs:simpleType&nbsp;name="Pohlav&iacute;Type"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&nbsp;base="xs:string"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration&nbsp;value="p&aacute;nsk&eacute;"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration&nbsp;value="d&aacute;msk&eacute;"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration&nbsp;value="univerz&aacute;ln&iacute;"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br>
+&lt;/xs:simpleType&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></p></div></blockquote></div><p>A naopak v tomto omezen&iacute; nastavuji &#382;e hodnoty vkl&aacute;dan&eacute; do elementu identifika&#269;n&iacute; &#269;&iacute;slo
+                mus&iacute; b&yacute;t ve stylu - 10 &#269;&iacute;slic a 5 velk&yacute;ch p&iacute;smen neboli 0203222101NEKSP</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code"><br>
+&lt;xs:simpleType&nbsp;name="Identifika&#269;n&iacute;&#268;&iacute;slo"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&nbsp;base="xs:string"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:pattern&nbsp;value="\d{10}\D*\p{Lu}{5}"&gt;&lt;/xs:pattern&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br>
+&lt;/xs:simpleType&gt;</code></p></div></blockquote></div><p><a class="indexterm" name="d5e36"></a>Pomoc&iacute; referen&#269;n&iacute;
+                integrity neboli unik&aacute;tn&iacute;ho kl&iacute;&#269;e jsem zajistil &#382;e se v dokumentu nebude objevovat
+                stejn&yacute; typ z&aacute;kazn&iacute;ka (jedn&aacute; se o atribut elementu z&aacute;kazn&iacute;k: dodac&iacute; nebo faktura&#269;n&iacute;).
+                Uk&aacute;zka k&oacute;du:</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&lt;xs:complexType&nbsp;name="dodac&iacute;ListType"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:sequence&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element&nbsp;type="metadataType"&nbsp;name="metadata"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element&nbsp;type="HeaderType"&nbsp;name="Header"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:unique&nbsp;name="zakaznikKontrola"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:selector&nbsp;xpath="mstns:Zakaznik"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:field&nbsp;xpath="@typ"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:unique&gt;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element&nbsp;type="Polo&#382;kyType"&nbsp;name="Polo&#382;ky"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:sequence&gt;<br>
+&lt;/xs:complexType&gt;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></p></div></blockquote></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e41"></a>Schematron</h2></div></div></div><p><a class="indexterm" name="d5e44"></a>Jako dal&#353;&iacute; po&#382;adavek bylo
+                vytvo&#345;en&iacute; schematronu kter&yacute; bylo mo&#382;no vytvo&#345;it v r&aacute;mci schematu &#269;i jako samostatn&yacute;
+                soubor. J&aacute; jsem se rozhodl pro druhou mo&#382;nost tud&iacute;&#382; mou pr&aacute;ci m&#367;&#382;ete vid&#283;t zde
+                    <code class="filename">schematron.sch</code> v tomto schemtronu kotroluji nap&#345;&iacute;klad
+                minim&aacute;ln&iacute; mno&#382;stv&iacute; polo&#382;ky nutn&eacute; pro objedn&aacute;n&iacute;. Zde m&#367;&#382;ete vid&#283;t uk&aacute;zku k&oacute;du : </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&lt;sch:pattern&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:title&gt;Minim&aacute;ln&iacute;&nbsp;mno&#382;stv&iacute;&nbsp;objedn&aacute;vky&lt;/sch:title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:rule&nbsp;context="o:Polo&#382;ky"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:assert&nbsp;test="if(o:Polo&#382;ka/o:Mnozstvi/@jednotky='kusy')&nbsp;then(min(//o:Polo&#382;ka/o:Mnozstvi[@jednotky='Kg'])&amp;gt;&nbsp;0)&nbsp;else(true())"&gt;Minim&aacute;ln&iacute;&nbsp;v&yacute;&#353;e&nbsp;mno&#382;stv&iacute;&nbsp;je&nbsp;1&nbsp;kus&lt;/sch:assert&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sch:rule&gt;<br>
+&lt;/sch:pattern&gt;</code></p></div></blockquote></div></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="d5e50"></a>Chapter&nbsp;2.&nbsp;<a class="indexterm" name="d5e52"></a>Transformace</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="#d5e55">HTML transformace</a></span></dt><dt><span class="sect1"><a href="#d5e71">PDF transformace </a></span></dt></dl></div><p>Dal&#353;&iacute;m &uacute;kolem t&eacute;to pr&aacute;ce bylo transformov&aacute;n&iacute; XML dokumentu do HTML a PDF dokumentu. K
+            tomuto transformov&aacute;n&iacute; jsou pou&#382;&iacute;v&aacute;ny XSL styly</p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e55"></a>HTML transformace<a class="indexterm" name="d5e57"></a></h2></div></div></div><p>Pro transformaci do HTML dokumentu jsem vytvo&#345;il soubor
+                    <code class="filename">html.xsl</code> v tomto souboru jsou uvedeny &#353;ablony
+                pro form&aacute;tov&aacute;n&iacute; a zobrazen&iacute; XML dokumentu v HTML podob&#283;. V n&aacute;sleduj&iacute;c&iacute;m k&oacute;du uk&aacute;&#382;i
+                vygenerov&aacute;n&iacute; objednan&yacute;ch polo&#382;ek do tabulky a n&aacute;sledn&eacute; vygenerov&aacute;n&iacute; samostatn&eacute; HTLM
+                str&aacute;nky pro ka&#382;dou polo&#382;ku : </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&lt;xsl:for-each&nbsp;select="//Polo&#382;ka"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="polozka{position()}.html"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="Identifika&#269;n&iacute;&#268;&iacute;slo"/&gt;&nbsp;-&nbsp;&lt;xsl:value-of&nbsp;select="Popis"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:for-each&gt;<br>
+&lt;/xsl:template&gt;<br>
+<br>
+&lt;xsl:template&nbsp;match="s:Polo&#382;ky"&gt;<br>
+&lt;table&gt;<br>
+&lt;caption&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Seznam&nbsp;polo&#382;ek&lt;/h2&gt;<br>
+&lt;/caption&gt;<br>
+&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Identifika&#269;n&iacute;&nbsp;&#269;&iacute;slo&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Popis&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Datum&nbsp;v&yacute;roby&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Datum&nbsp;expirace&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Pe&#269;e&#357;&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;&#352;ar&#382;e&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Jednotkov&aacute;&nbsp;cena&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Mno&#382;stv&iacute;&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Po&#269;et&nbsp;balen&iacute;&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;QR&nbsp;K&oacute;d&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;TXT&lt;/th&gt;<br>
+&lt;/tr&gt;<br>
+&lt;xsl:for-each&nbsp;select="//s:dodac&iacute;List/s:Polo&#382;ky/s:Polo&#382;ka"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="s:Identifika&#269;n&iacute;&#268;&iacute;slo"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="s:Popis"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="s:Barva"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="s:Materi&aacute;l"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="s:Pohlav&iacute;"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="s:Velikost"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;xsl:value-of&nbsp;select="s:CenaZaKus"/&gt;&amp;#160;&lt;xsl:value-of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select="s:CenaZaKus/@m&#283;na"/&gt;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;xsl:value-of&nbsp;select="s:Mnozstvi"/&gt;&amp;#160;&lt;xsl:value-of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select="s:Mnozstvi/@jednotky"/&gt;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="Zna&#269;ka"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:choose&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:when&nbsp;test="FotoURI[not(text())]"&gt;N&aacute;hled&nbsp;nen&iacute;&nbsp;k&nbsp;dispozici&lt;/xsl:when&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:otherwise&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;alt="Foto&nbsp;polo&#382;ky"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:attribute&nbsp;name="src"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:text&gt;png/&lt;/xsl:text&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="FotoURI"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:attribute&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/img&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:otherwise&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:choose&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="s:TXT"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+&lt;/xsl:for-each&gt;</code></p></div></blockquote></div><p>
+            </p><p><a class="indexterm" name="d5e65"></a>Pro u&#382;ivatelsky p&#345;&iacute;v&#283;tiv&#283;j&#353;&iacute;
+                zobrazen&iacute; HTML str&aacute;nky jsem vytvo&#345;il kask&aacute;dov&yacute; styl
+                <code class="filename">style.css</code>. Tento dokument pouze upravuje pozicov&aacute;n&iacute; tabulek a
+                nadpis&#367;. Uk&aacute;zka k&oacute;du :</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code"><br>
+table&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border-collapse:&nbsp;collapse;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;float:left;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border:&nbsp;solid;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;20px;<br>
+}<br>
+<br>
+img&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;150px;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;150px;<br>
+}<br>
+<br>
+td&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border:&nbsp;1px&nbsp;solid&nbsp;#999;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;padding:&nbsp;0.5rem;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text-align:&nbsp;left;<br>
+}<br>
+</code></p></div></blockquote></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e71"></a>PDF transformace <a class="indexterm" name="d5e73"></a></h2></div></div></div><p> Jako p&#345;edposledn&iacute; &#269;&aacute;st t&eacute;to pr&aacute;ce je transformace XML dokumentu do PDF. Soubor
+                kter&yacute;m tuto transformaci prov&aacute;d&iacute;m je <code class="filename">pdf.xsl</code>. Rozd&iacute;l
+                mezi HTML transformac&iacute; a touto je ten &#382;e se zde pou&#382;&iacute;vaj&iacute; form&aacute;tovateln&eacute; bloky
+                [fo:block]. Ve v&yacute;sledn&eacute;m dokumentu jsem se sna&#382;il zachovat podobn&yacute; styl jako v HTML
+                transformaci. Uk&aacute;zka k&oacute;du : </p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&lt;fo:static-content&nbsp;flow-name="xsl-region-before"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block&nbsp;text-align="center"&nbsp;margin-top="5mm"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:text&gt;Z&aacute;kazn&iacute;kova&nbsp;objedn&aacute;vka&nbsp;&#269;&iacute;slo&nbsp;:&nbsp;&lt;/xsl:text&gt;&lt;xsl:value-of&nbsp;select="s:dodac&iacute;List/s:metadata/s:CisObj"/&gt;&lt;fo:leader&nbsp;leader-pattern="dots"/&gt;&lt;xsl:text&gt;&nbsp;vyexportov&aacute;no&nbsp;do&nbsp;PDF&nbsp;dne&nbsp;:&nbsp;&lt;/xsl:text&gt;&lt;xsl:value-of&nbsp;select="current-date()"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:block&gt;<br>
+&lt;/fo:static-content&gt;<br>
+<br>
+&lt;fo:static-content&nbsp;flow-name="xsl-region-after"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block&nbsp;text-align="center"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:text&gt;Strana&nbsp;&lt;/xsl:text&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:page-number/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:text&gt;&nbsp;/&nbsp;&lt;/xsl:text&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:page-number-citation&nbsp;ref-id="posledni"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:block&gt;<br>
+&lt;/fo:static-content&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></p></div></blockquote></div><p>V tomto k&oacute;du vytv&aacute;&#345;&iacute;m z&aacute;hlav&iacute; a z&aacute;pat&iacute;. V z&aacute;hlav&iacute; je uvedeno &#269;&iacute;slo objedn&aacute;vky a
+                den kdy bylo toto PDF vyti&#353;t&#283;no a v z&aacute;pati je uvedena informace o po&#269;tu stran
+                dokumentu.</p></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="d5e81"></a>Chapter&nbsp;3.&nbsp;<a class="indexterm" name="d5e83"></a>Dokumentace</h1></div></div></div><p>Jako posledn&iacute; &#269;&aacute;st&iacute; bylo vytvo&#345;en&iacute; dokumentace pomoc&iacute; DOCBOOKU a n&aacute;sledn&eacute; vygenerov&aacute;n&iacute;
+            tohoto zpracov&aacute;n&iacute; do podoby HTML a PDF.</p></div><div class="index"><div class="titlepage"><div><div><h1 class="title"><a name="d5e86"></a>Index</h1></div></div></div><div xmlns:xlink="http://www.w3.org/1999/xlink" class="index"><div class="indexdiv"><h3>C</h3><dl><dt id="ientry-d5e65">CSS, <a class="indexterm" href="#d5e55">HTML transformace</a></dt></dl></div><div class="indexdiv"><h3>D</h3><dl><dt id="ientry-d5e83">DOCBOOK, <a class="indexterm" href="#d5e81">Dokumentace</a></dt></dl></div><div class="indexdiv"><h3>H</h3><dl><dt id="ientry-d5e57">HTML
+                transformace, <a class="indexterm" href="#d5e55">HTML transformace</a></dt></dl></div><div class="indexdiv"><h3>P</h3><dl><dt id="ientry-d5e73">PDF
+                transformace, <a class="indexterm" href="#d5e71">PDF transformace </a></dt></dl></div><div class="indexdiv"><h3>R</h3><dl><dt id="ientry-d5e36">Referen&#269;n&iacute; integrita, <a class="indexterm" href="#d5e19">XML schema</a></dt></dl></div><div class="indexdiv"><h3>S</h3><dl><dt id="ientry-d5e44">Schematron, <a class="indexterm" href="#d5e41">Schematron</a></dt></dl></div><div class="indexdiv"><h3>T</h3><dl><dt id="ientry-d5e52">Transformace, <a class="indexterm" href="#d5e50">Transformace</a></dt></dl></div><div class="indexdiv"><h3>X</h3><dl><dt id="ientry-d5e17">XML, <a class="indexterm" href="#d5e14">XML dokument</a></dt><dt id="ientry-d5e23">XML schematu, <a class="indexterm" href="#d5e19">XML schema</a></dt></dl></div></div></div></div></body></html>
