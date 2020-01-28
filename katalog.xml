@@ -35,7 +35,7 @@
     <Položky>
         <Položka>
             <IdentifikačníČíslo>0203222313BEDBE</IdentifikačníČíslo>
-            <Popis>zimní bunda</Popis>
+            <Popis>Zimní bunda</Popis>
             <Barva>žlutá</Barva>
             <Materiál>polyester</Materiál>
             <Pohlaví>dámské</Pohlaví>
@@ -140,7 +140,7 @@
         <Položka>
             <IdentifikačníČíslo>3791328001SMBJK</IdentifikačníČíslo>
             <Popis>Kulich</Popis>
-            <Barva>Černá, bílá</Barva>
+            <Barva>Černá</Barva>
             <Materiál>Vlna</Materiál>
             <Pohlaví>univerzální</Pohlaví>
             <Velikost>uviverzální</Velikost>
@@ -231,7 +231,7 @@
         <Položka>
             <IdentifikačníČíslo>1246384512QRKMH</IdentifikačníČíslo>
             <Popis>Batoh</Popis>
-            <Barva>Modrá</Barva>
+            <Barva>Modrá, černá</Barva>
             <Materiál>Squaretex 420, Duratex</Materiál>
             <Pohlaví>univerzální</Pohlaví>
             <Velikost>XL</Velikost>

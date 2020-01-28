@@ -84,7 +84,7 @@
     
     <xsl:template match="s:FotoURI">
         <fo:block>
-            <fo:external-graphic src="{.}" content-width="5cm" width="40%"
+            <fo:external-graphic src="png/{.}" content-width="5cm" width="40%"
                 text-align="center" display-align="center"/>
         </fo:block>
     </xsl:template>
@@ -96,6 +96,10 @@
 
     <xsl:template match="s:CisObj">
         <fo:block>Číslo objednávky: <xsl:value-of select="."/></fo:block>
+    </xsl:template>
+    
+    <xsl:template match="s:DatumObjednání">
+        <fo:block>Datum objednání: <xsl:value-of select="."/></fo:block>
     </xsl:template>
 
     <xsl:template match="s:DatumDodání">
@@ -212,12 +216,14 @@
             <fo:table-cell padding="3mm">
                 <fo:block>
                     <xsl:value-of select="s:CenaZaKus"/>
+                    <xsl:text> </xsl:text>
                     <xsl:value-of select="s:CenaZaKus/@měna"/>
                 </fo:block>
             </fo:table-cell>
             <fo:table-cell padding="3mm">
                 <fo:block>
                     <xsl:value-of select="s:Mnozstvi"/>
+                    <xsl:text> </xsl:text>
                     <xsl:value-of select="s:Mnozstvi/@jednotky"/>
                 </fo:block>
             </fo:table-cell>

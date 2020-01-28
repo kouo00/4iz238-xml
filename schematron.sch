@@ -17,7 +17,7 @@
     <sch:pattern>
         <sch:title>Minimální množství objednávky</sch:title>
         <sch:rule context="o:Položky">        
-            <sch:assert test="if(o:Položka/o:Mnozstvi/@jednotky='kusy') then(min(//o:Položka/o:Mnozstvi[@jednotky='Kg'])&gt; 0) else(true())">Minimální výše množství je 1 kus</sch:assert>
+            <sch:assert test="if(o:Položka/o:Mnozstvi/@jednotky='kusy') then(min(//o:Položka/o:Mnozstvi[@jednotky='kusy'])&gt; 0) else(true())">Minimální výše množství je 1 kus</sch:assert>
         </sch:rule>
     </sch:pattern>
 
