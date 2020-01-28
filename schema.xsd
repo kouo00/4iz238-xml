@@ -1,6 +1,6 @@
 <xs:schema 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns="http://www.semestralkaMS.cz/LS2018" targetNamespace="http://www.semestralkaMS.cz/LS2018" xmlns:mstns="http://www.semestralkaMS.cz/LS2018" elementFormDefault="qualified" attributeFormDefault="unqualified"
+    xmlns="http://www.horolezci.cz/" targetNamespace="http://www.horolezci.cz/" xmlns:mstns="http://www.horolezci.cz/" elementFormDefault="qualified" attributeFormDefault="unqualified"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1"
     >
     
@@ -29,7 +29,7 @@
     
     <xs:complexType name="metadataType">
         <xs:sequence>
-            <xs:element type="DodListType" name="DodaciList"/>
+            <xs:element type="cisloListuType" name="cisloListu"/>
             <xs:element type="CisObjType" name="CisObj"/>
             <xs:element type="xs:date" name="DatumObjednání"/>
             <xs:element type="xs:date" name="DatumDodání"/>
@@ -162,7 +162,7 @@
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:simpleType name="DodListType">
+    <xs:simpleType name="cisloListuType">
         <xs:restriction base="xs:string">
             <xs:pattern value="DL\d{6}"/>
         </xs:restriction> 

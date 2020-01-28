@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xpath-default-namespace="http://www.semestralkaMS.cz/LS2018"
+    xpath-default-namespace="http://www.horolezci.cz/"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fo="http://www.w3.org/1999/XSL/Format"
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
-    xmlns:s="http://www.semestralkaMS.cz/LS2018" exclude-result-prefixes="s" version="2.0">
+    xmlns:s="http://www.horolezci.cz/" exclude-result-prefixes="s" version="2.0">
 
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
 
@@ -20,7 +20,7 @@
                 
                 <fo:static-content flow-name="xsl-region-before">
                     <fo:block text-align="center" margin-top="5mm">
-                        <xsl:text>Zákazníkova objednávka číslo : </xsl:text><xsl:value-of select="s:dodacíList/s:Header/s:CisObj"/><fo:leader leader-pattern="dots"/><xsl:text> vyexportováno do PDF dne : </xsl:text><xsl:value-of select="current-date()"/>
+                        <xsl:text>Zákazníkova objednávka číslo : </xsl:text><xsl:value-of select="s:dodacíList/s:metadata/s:CisObj"/><fo:leader leader-pattern="dots"/><xsl:text> vyexportováno do PDF dne : </xsl:text><xsl:value-of select="current-date()"/>
                     </fo:block>
                 </fo:static-content>
 
@@ -89,7 +89,7 @@
         </fo:block>
     </xsl:template>
 
-    <xsl:template match="s:DodaciList">
+    <xsl:template match="s:cisloListu">
         <fo:block> Dodací list: <xsl:value-of select="."/>
         </fo:block>
     </xsl:template>

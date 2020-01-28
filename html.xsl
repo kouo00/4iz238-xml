@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xpath-default-namespace="http://www.semestralkaMS.cz/LS2018"
-    xmlns:s="http://www.semestralkaMS.cz/LS2018" exclude-result-prefixes="s" version="2.0">
+    xpath-default-namespace="http://www.horolezci.cz/"
+    xmlns:s="http://www.horolezci.cz/" exclude-result-prefixes="s" version="2.0">
 
     <xsl:output method="html" version="5" encoding="UTF-8"/>
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="SemeSchematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-stylesheet type="text/xsl" href="SemeHTMLTrans.xsl"?>
+<?xml-model href="schematron.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-stylesheet type="text/xsl" href="html.xsl"?>
 
-<dodacíList xmlns="http://www.semestralkaMS.cz/LS2018"
+<dodacíList xmlns="http://www.horolezci.cz/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.semestralkaMS.cz/LS2018 SemeSchema.xsd">
+    xsi:schemaLocation="http://www.semestralkaMS.cz/LS2018 schema.xsd">
     <metadata>
-        <DodaciList>DL220325</DodaciList>
-        <CisObj>0000118543</CisObj>
+        <cisloListu>DL220325</cisloListu>
+        <CisObj>0000118549</CisObj>
         <DatumObjednání>2016-12-01</DatumObjednání>
         <DatumDodání>2016-12-05</DatumDodání>
         <ObjZak>1519029618</ObjZak>

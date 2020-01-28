@@ -3,7 +3,7 @@
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process">
 
     <sch:title>Validace faktury</sch:title>
-    <sch:ns uri="http://www.semestralkaMS.cz/LS2018" prefix="o"/>
+    <sch:ns uri="http://www.horolezci.cz/" prefix="o"/>
     <sch:ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
 
     <sch:pattern>
